@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azeem Farooqi - Content Strategist & Writer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+.dropdown-header {
+    background: #3498db;
+    color: white;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.dropdown-header:hover {
+    background: #2980b9;
+}
+
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+.dropdown-header::after {
+    content: '▾'; /* down arrow */
+    float: right;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-header.active::after {
+    transform: rotate(180deg); /* rotate arrow to point up */
+}
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .contact-info span {
+            color: #34495e;
+            font-weight: 500;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .content-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .content-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .content-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .content-item .meta {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .content-item p {
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .academic-paper {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .academic-paper h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .paper-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .paper-link:hover {
+            text-decoration: underline;
+        }
+        
+        .branding-message {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .newsletter-preview {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .newsletter-header {
+            background: #3498db;
+            color: white;
+            padding: 0.5rem 1rem;
+            margin: -1rem -1rem 1rem -1rem;
+            border-radius: 8px 8px 0 0;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Azeem Farooqi</h1>
+            <p>Content Strategist | Academic Researcher | Digital Marketing Specialist</p>
+            <div class="contact-info">
+                <span>📧 azeemfarooqi2001@gmail.com</span>
+                <span>📱 +92 332 3020301</span>
+                <span>🔗 <a href="https://linkedin.com/in/azeem-farooqi" style="color: #3498db;">LinkedIn</a></span>
+                <span>💻 <a href="https://github.com/azeemfarooqi7" style="color: #3498db;">GitHub</a></span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Content Marketing Performance</h2>
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="stat-number">50+</span>
+                    <span>Blog Posts Written</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">25+</span>
+                    <span>Newsletters Created</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">30+</span>
+                    <span>Academic Projects</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">85%</span>
+                    <span>Avg. Open Rate</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+    <div class="dropdown-header">✍️ Blog Writing Samples</div>
+    <div class="dropdown-content">
+        <div class="content-grid">
+                <div class="content-item">
+                    <h3>The Future of AI in Business Operations</h3>
+                    <div class="meta">Tech & Business • 1,200 words • SEO Optimized</div>
+                    <p>Explored how artificial intelligence is transforming business operations across industries. Covered machine learning applications, automation benefits, and implementation strategies for SMEs. Achieved 15% increase in organic traffic for client's tech blog.</p>
+                </div>
+                
+                <div class="content-item">
+                    <h3>Sustainable Finance: Green Bonds Market Analysis</h3>
+                    <div class="meta">Finance & Sustainability • 1,500 words • Research-Based</div>
+                    <p>Deep dive into the green bonds market, analyzing growth trends, regulatory frameworks, and investment opportunities. Incorporated latest market data and expert interviews to provide comprehensive market overview.</p>
+                </div>
+                
+                <div class="content-item">
+                    <h3>Digital Transformation in Healthcare</h3>
+                    <div class="meta">Healthcare Technology • 1,100 words • Thought Leadership</div>
+                    <p>Examined the impact of digital technologies on healthcare delivery, patient outcomes, and operational efficiency. Discussed telemedicine trends, EHR systems, and data security challenges in healthcare IT.</p>
+                </div>
+                
+                <div class="content-item">
+                    <h3>Cryptocurrency Market Volatility: Investor's Guide</h3>
+                    <div class="meta">Finance & Investment • 1,300 words • Educational</div>
+                    <p>Comprehensive guide to understanding cryptocurrency market dynamics, volatility factors, and risk management strategies. Included practical tips for both novice and experienced crypto investors.</p>
+                </div>
+                
+                <div class="content-item">
+                    <h3>E-commerce Personalization Strategies</h3>
+                    <div class="meta">Digital Marketing • 1,000 words • Strategy-Focused</div>
+                    <p>Analyzed successful personalization techniques used by leading e-commerce platforms. Covered AI-driven recommendations, customer segmentation, and conversion optimization through personalized experiences.</p>
+                </div>
+                
+                <div class="content-item">
+                    <h3>Remote Work Culture: Building Team Cohesion</h3>
+                    <div class="meta">HR & Management • 1,400 words • Best Practices</div>
+                    <p>Explored strategies for maintaining team cohesion and productivity in remote work environments. Discussed communication tools, virtual team building, and performance management in distributed teams.</p>
+                </div>
+                
+                <div class="content-item">
+                    <h3>Blockchain Beyond Cryptocurrency</h3>
+                    <div class="meta">Technology • 1,250 words • Innovation Focus</div>
+                    <p>Investigated blockchain applications beyond financial services, including supply chain management, healthcare records, and digital identity verification. Highlighted real-world use cases and implementation challenges.</p>
+                </div>
+            </div>
+        </div>
+</div>
+
+        <div class="section">
+            <div class="dropdown-header">📧 Newsletter Campaigns</div>
+    <div class="dropdown-content">
+            <div class="content-grid">
+                <div class="content-item">
+                    <div class="newsletter-preview">
+                        <div class="newsletter-header">Tech Weekly Insights</div>
+                        <h3>AI Revolution in 2024: What's Next?</h3>
+                        <p><strong>Performance:</strong> 42% open rate, 8.5% click-through rate</p>
+                        <p>Weekly newsletter covering latest AI developments, startup funding news, and technology trends. Curated content included GPT-4 updates, quantum computing breakthroughs, and tech policy changes.</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <div class="newsletter-preview">
+                        <div class="newsletter-header">Finance Forward</div>
+                        <h3>Market Movers & Investment Opportunities</h3>
+                        <p><strong>Performance:</strong> 38% open rate, 12% click-through rate</p>
+                        <p>Bi-weekly financial newsletter featuring market analysis, investment strategies, and economic indicators. Included exclusive interviews with financial advisors and market predictions.</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <div class="newsletter-preview">
+                        <div class="newsletter-header">Wellness Wednesday</div>
+                        <h3>Mindful Living in a Digital Age</h3>
+                        <p><strong>Performance:</strong> 45% open rate, 15% click-through rate</p>
+                        <p>Weekly wellness newsletter focusing on mental health, work-life balance, and healthy lifestyle tips. Featured meditation guides, nutrition advice, and stress management techniques.</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <div class="newsletter-preview">
+                        <div class="newsletter-header">Startup Spotlight</div>
+                        <h3>Emerging Companies & Innovation Trends</h3>
+                        <p><strong>Performance:</strong> 40% open rate, 10% click-through rate</p>
+                        <p>Monthly newsletter highlighting promising startups, venture capital news, and entrepreneurship insights. Included founder interviews and industry analysis.</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <div class="newsletter-preview">
+                        <div class="newsletter-header">Digital Marketing Digest</div>
+                        <h3>SEO Strategies & Social Media Trends</h3>
+                        <p><strong>Performance:</strong> 44% open rate, 13% click-through rate</p>
+                        <p>Bi-weekly newsletter for marketing professionals covering SEO updates, social media algorithm changes, and content marketing best practices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+        <div class="section">
+            <div class="dropdown-header">🎯 Branding & Marketing Messages</div>
+    <div class="dropdown-content"> 
+            
+            <div class="branding-message">
+                <h3>Tech Startup Brand Voice</h3>
+                "Innovation isn't just about having the next big idea—it's about executing it flawlessly. We turn visionary concepts into market-ready solutions that transform industries."
+            </div>
+            
+            <div class="branding-message">
+                <h3>Financial Services Tagline</h3>
+                "Your Financial Future, Simplified. Expert guidance meets cutting-edge technology to make wealth building accessible to everyone."
+            </div>
+            
+            <div class="branding-message">
+                <h3>Healthcare Technology Positioning</h3>
+                "Bridging the gap between healthcare providers and patients through intelligent technology solutions that prioritize care, efficiency, and outcomes."
+            </div>
+            
+            <div class="branding-message">
+                <h3>E-learning Platform Mission</h3>
+                "Democratizing education through personalized learning experiences. Every learner deserves access to world-class knowledge, tailored to their unique journey."
+            </div>
+        </div>
+</div>
+
+        <div class="section">
+            <div class="dropdown-header">📈 Email Marketing Campaign Results</div>
+    <div class="dropdown-content"> 
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="stat-number">42%</span>
+                    <span>Average Open Rate</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">11.2%</span>
+                    <span>Average CTR</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">15K+</span>
+                    <span>Total Subscribers</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">2.1%</span>
+                    <span>Unsubscribe Rate</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+                <h3>Campaign Highlights:</h3>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li><strong>Holiday Season Campaign:</strong> Achieved 55% open rate with personalized gift recommendations</li>
+                    <li><strong>Product Launch Series:</strong> Generated 28% conversion rate for new software release</li>
+                    <li><strong>Customer Retention Campaign:</strong> Reduced churn by 35% through targeted re-engagement</li>
+                    <li><strong>Educational Newsletter Series:</strong> Increased engagement by 47% with value-driven content</li>
+                </ul>
+            </div>
+        </div>
+</div>
+        <div class="section">
+ <div class="dropdown-header">🎓 Academic Writing Portfolio</div>
+    <div class="dropdown-content">             
+            <div class="academic-paper">
+                <h3>Financial Inclusion and Stock Market Participation: The Mediating Role of Financial Self-Efficacy</h3>
+                <p><strong>Type:</strong> Dissertation Research | <strong>Pages:</strong> 45 | <strong>Year:</strong> 2024</p>
+                <p><strong>Abstract:</strong> This comprehensive study investigates the intricate relationship between financial inclusion, financial self-efficacy, and stock market participation, with particular focus on how overconfidence moderates these relationships. The research employs quantitative methodology using PLS-SEM analysis to examine data from 352 investors, revealing significant insights into behavioral finance patterns in developing economies.</p>
+                <p><strong>Key Findings:</strong> Financial inclusion significantly impacts financial self-efficacy (β=0.381, p<0.001), while overconfidence moderates the relationship between financial literacy and investment decisions. The study contributes to behavioral finance literature by providing empirical evidence for the role of cognitive biases in investment behavior.</p>
+               <a href="https://docs.google.com/document/d/1t0J5zXNovO39vtQxAUllSbNRIcM49Vkox8OpqvaHldc/edit?usp=sharing" class="paper-link" target="_blank">📄 View Full Paper</a>
+
+            </div>
+            
+            <div class="academic-paper">
+                <h3>Employment Law for HR Practitioners in England and Wales</h3>
+                <p><strong>Type:</strong> Legal Analysis Report | <strong>Pages:</strong> 12 | <strong>Year:</strong> 2024</p>
+                <p><strong>Abstract:</strong> A comprehensive legal analysis addressing workplace injury scenarios in the context of apprenticeship programs. The paper examines duty of care obligations, negligence claims, and risk mitigation strategies for employers, with specific focus on young worker protection under UK employment legislation.</p>
+                <p><strong>Key Contributions:</strong> Detailed examination of case law precedents, practical recommendations for HR practitioners, and compliance strategies for organizations employing young workers and apprentices.</p>
+                <a href="https://docs.google.com/document/d/1r9XeedOITXpdjtBzrY_UvdV2o99_hYlVhBkl0iq8SN4/edit?usp=sharing" class="paper-link" target="_blank">📄 View Full Paper</a>
+
+            </div>
+            
+            <div class="academic-paper">
+                <h3>Implementing Effective Interventions to Reduce Pressure Sores in Pediatric Intensive Care Units</h3>
+                <p><strong>Type:</strong> Quality Improvement Research | <strong>Pages:</strong> 18 | <strong>Year:</strong> 2024</p>
+                <p><strong>Abstract:</strong> A systematic quality improvement project proposal addressing the critical issue of pressure ulcers in pediatric intensive care settings. The research employs PRISMA methodology and NHS six-step approach to develop evidence-based intervention strategies.</p>
+                <p><strong>Methodology:</strong> Comprehensive literature review, stakeholder analysis, and implementation framework using PDSA cycles for continuous improvement in healthcare settings.</p>
+<a href="https://docs.google.com/document/d/1Rpmk1Z69Q27d5PZ0V8j-3C-CLnAFCFneQblgrbuwgTY/edit?usp=sharing" class="paper-link" target="_blank">📄 View Full Paper</a>
+            </div>
+            
+            <div class="academic-paper" style="border-left-color: #f39c12;">
+                <h3>Motion Planning in Robotics Using Reinforcement Learning</h3>
+                <p><strong>Type:</strong> Independent Research (In Progress) | <strong>Expected Completion:</strong> 2025</p>
+                <p><strong>Research Focus:</strong> Currently developing novel algorithms for robotic motion planning using deep reinforcement learning techniques. The research aims to improve path optimization in complex environments with dynamic obstacles.</p>
+                <p><strong>Methodology:</strong> Implementing state-of-the-art RL algorithms including PPO and SAC for continuous control problems in robotics simulation environments.</p>
+                <p><strong>Status:</strong> Literature review completed, experimental framework established, preliminary results showing 15% improvement in path efficiency over traditional methods.</p>
+                <a href="https://docs.google.com/document/d/1C4rcjslU-7ilCVr6z6LkQeFI3qq2TmGTgh3Lvu0AVDc/edit?usp=sharing" class="paper-link" target="_blank">📄 View Research Paper</a>
+
+            </div>
+            
+            <div style="margin-top: 2rem; padding: 1rem; background: #e8f4f8; border-radius: 8px;">
+                <h3>Academic Writing Expertise:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div><strong>Referencing Styles:</strong> APA, MLA, Harvard, Vancouver</div>
+                    <div><strong>Research Methods:</strong> Quantitative, Qualitative, Mixed Methods</div>
+                    <div><strong>Statistical Analysis:</strong> SPSS, R, PLS-SEM</div>
+                    <div><strong>Domains:</strong> Finance, Healthcare, Law, Technology</div>
+                </div>
+            </div>
+        </div>
+</div>
+
+        <div class="section">
+            <h2>🛠️ Technical Skills & Tools</h2>
+            <div class="content-grid">
+                <div class="content-item">
+                    <h3>Content Creation</h3>
+                    <p>WordPress, Notion, Google Docs, Grammarly, Hemingway Editor, SEO optimization tools</p>
+                </div>
+                <div class="content-item">
+                    <h3>Email Marketing</h3>
+                    <p>Mailchimp, ConvertKit, Apollo, Instantly.ai, A/B testing, segmentation strategies</p>
+                </div>
+                <div class="content-item">
+                    <h3>Analytics & Research</h3>
+                    <p>Google Analytics, SEMrush, Ahrefs, survey design, data visualization, statistical analysis</p>
+                </div>
+                <div class="content-item">
+                    <h3>Design & Branding</h3>
+                    <p>Canva, Figma basics, brand voice development, visual storytelling, infographic creation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    document.querySelectorAll('.dropdown-header').forEach(button => {
+        button.addEventListener('click', () => {
+            button.classList.toggle('active');
+            const content = button.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
